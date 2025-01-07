@@ -1,4 +1,4 @@
-# This workflow will build a golang project
+u# This workflow will build a golang project
 # For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-go
 
 name: Go
@@ -34,6 +34,6 @@ jobs:
     needs: test
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/setup-go@v4
+    - uses: actions/checkout-go@v4
     - name: Build
       run: go build -v main.go
