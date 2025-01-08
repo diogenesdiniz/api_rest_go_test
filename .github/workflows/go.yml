@@ -5,9 +5,9 @@ name: Go
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "*" ]
   pull_request:
-    branches: [ "main" ]
+    branches: [ "*" ]
 
 jobs:
 
@@ -16,7 +16,7 @@ jobs:
     strategy:
       matrix:
         go_version: ['1.20', '1.18', '>=1.20']
-        os_version: ['ubuntu-latest', 'windows-latest']
+        os_version: ['ubuntu-latest']
     steps:
     - uses: actions/checkout@v4
 
@@ -30,9 +30,6 @@ jobs:
 
     - name: Create-DB
       run: docker compose up -d
-
-    - name: Teste-Secrets
-      run: echo ${{ secrets.TESTE }}
       
     - name: Test
       run: go test -v main_test.go
